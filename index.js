@@ -4,7 +4,7 @@ const KoaRouter = require('koa-router');
 const koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const json = require('koa-json');
-const morgan = require('morgan');
+const morgan = require('koa-morgan');
 const mongoose = require('mongoose');
 const { koaBody } = require('koa-body');
 const fs = require('fs');
@@ -19,7 +19,7 @@ mongoose.connect(process.env.DATABASE).then(() => console.log('DB connected'));
 
 // middlewares
 
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 app.use(json())
 app.use(bodyParser());
 app.use(cors())
